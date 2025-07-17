@@ -34,7 +34,7 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/5edf5fbc-b011-463a-ab65-6cee2d9bc733.png" 
               alt="KodeLink Logo" 
-              className="w-32 h-32 md:w-48 md:h-48 mx-auto mb-6 object-contain"
+              className="w-96 h-96 md:w-[36rem] md:h-[36rem] mx-auto mb-6 object-contain"
             />
           </div>
           
@@ -42,7 +42,7 @@ const Hero = () => {
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              KodeLink
+              
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-blue-100">
               Bridging Creativity & Innovation
