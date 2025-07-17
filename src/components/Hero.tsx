@@ -34,7 +34,7 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/5edf5fbc-b011-463a-ab65-6cee2d9bc733.png" 
               alt="KodeLink Logo" 
-              className="w-96 h-96 md:w-[36rem] md:h-[36rem] mx-auto mb-6 object-contain"
+              className="w-32 h-32 md:w-48 md:h-48 mx-auto mb-6 object-contain"
             />
           </div>
           
