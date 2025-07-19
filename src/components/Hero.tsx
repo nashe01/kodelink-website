@@ -44,7 +44,7 @@ const Hero = () => {
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              KodeLink
+              
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-blue-100">
               Bridging Creativity & Innovation

@@ -31,7 +31,7 @@ const Contact = () => {
             contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="space-y-6">
+          <div className="space-y-6 mt-8">
             <Card className={`border-0 shadow-lg transition-all duration-700 delay-500 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
