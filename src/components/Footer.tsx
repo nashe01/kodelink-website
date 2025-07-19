@@ -38,14 +38,14 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-slate-300">
               <li>📧 info@kodelink.co.zw</li>
-              <li>📞 +263 123 456 789</li>
+              <li>📞 +263 785 474 199</li>
               <li>📍 Harare, Zimbabwe</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-          <p>&copy; 2024 KodeLink. All rights reserved. Made with ❤️ in Zimbabwe.</p>
+          <p>&copy; 2024 KodeLink. All rights reserved.</p>
         </div>
       </div>
     </footer>
