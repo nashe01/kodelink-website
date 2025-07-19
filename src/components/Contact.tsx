@@ -35,36 +35,36 @@ const Contact = () => {
             <Card className={`border-0 shadow-lg transition-all duration-700 delay-500 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
-              <CardHeader className="text-center pb-4">
-                <Mail className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <CardTitle className="text-lg">Email Us</CardTitle>
+              <CardHeader className="text-center pb-2">
+                <Mail className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                <CardTitle className="text-sm">Email Us</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-slate-600">info@kodelink.co.zw</p>
+              <CardContent className="text-center py-2">
+                <p className="text-slate-600 text-sm">info@kodelink.co.zw</p>
               </CardContent>
             </Card>
 
             <Card className={`border-0 shadow-lg transition-all duration-700 delay-700 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
-              <CardHeader className="text-center pb-4">
-                <Phone className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <CardTitle className="text-lg">Call Us</CardTitle>
+              <CardHeader className="text-center pb-2">
+                <Phone className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                <CardTitle className="text-sm">Call Us</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-slate-600">+263 123 456 789</p>
+              <CardContent className="text-center py-2">
+                <p className="text-slate-600 text-sm">+263 123 456 789</p>
               </CardContent>
             </Card>
 
             <Card className={`border-0 shadow-lg transition-all duration-700 delay-900 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
-              <CardHeader className="text-center pb-4">
-                <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <CardTitle className="text-lg">Visit Us</CardTitle>
+              <CardHeader className="text-center pb-2">
+                <MapPin className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                <CardTitle className="text-sm">Visit Us</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-slate-600">Harare, Zimbabwe</p>
+              <CardContent className="text-center py-2">
+                <p className="text-slate-600 text-sm">Harare, Zimbabwe</p>
               </CardContent>
             </Card>
           </div>
