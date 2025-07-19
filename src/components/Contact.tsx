@@ -76,7 +76,7 @@ const Contact = () => {
               <CardHeader>
                 <CardTitle className="text-2xl text-center">Send us a Message</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
@@ -95,10 +95,10 @@ const Contact = () => {
                   <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                   <Textarea 
                     placeholder="Tell us about your project..." 
-                    className="border-slate-300 min-h-32"
+                    className="border-slate-300 min-h-20"
                   />
                 </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 group">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 group">
                   Send Message
                   <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
