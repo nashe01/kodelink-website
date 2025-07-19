@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ShinyText from "./ShinyText";
 
 const Projects = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -67,7 +68,9 @@ const Projects = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Our Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ShinyText text="Our Projects" className="text-slate-900" speed={4} />
+          </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Explore some of our recent work that showcases our expertise in creating innovative digital solutions for businesses across various industries.
           </p>
@@ -99,7 +102,9 @@ const Projects = () => {
               </div>
               
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl text-slate-900">{project.title}</CardTitle>
+                <CardTitle className="text-xl">
+                  <ShinyText text={project.title} className="text-slate-900" speed={6} />
+                </CardTitle>
               </CardHeader>
               
               <CardContent className="space-y-4">

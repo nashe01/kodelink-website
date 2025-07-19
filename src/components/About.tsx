@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Users, Zap, Target } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ShinyText from "./ShinyText";
 
 const About = () => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
@@ -17,8 +18,8 @@ const About = () => {
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-              About KodeLink
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <ShinyText text="About KodeLink" className="text-slate-900" speed={4} />
             </h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
               Based in Zimbabwe, KodeLink is where creativity meets innovation. We're passionate about 

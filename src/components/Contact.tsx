@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ShinyText from "./ShinyText";
 
 const Contact = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -19,7 +20,9 @@ const Contact = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ShinyText text="Get In Touch" className="text-slate-900" speed={4} />
+          </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ready to transform your digital presence? Let's connect and discuss how we can help bring your vision to life.
           </p>
@@ -69,7 +72,7 @@ const Contact = () => {
             </Card>
           </div>
 
-          <div className={`lg:col-span-2 transition-all duration-1000 delay-600 ${
+          <div className={`lg:col-span-2 transition-all duration-1000 delay-600 mt-8 ${
             contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
             <Card className="border-0 shadow-lg">
