@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp, Play, Star } from "lucide-react";
+import { ArrowRight, Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
 import ShinyText from "./ShinyText";
@@ -44,9 +44,7 @@ const Hero = () => {
           <div className={`transition-all duration-1000 delay-300 ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <ShinyText text="KodeLink" className="text-white" speed={3} />
-            </h1>
+
             <h2 className="text-2xl md:text-3xl font-semibold mb-8">
               <ShinyText text="Bridging Creativity & Innovation" className="text-blue-100" speed={4} />
             </h2>
@@ -58,15 +56,11 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-16 transition-all duration-1000 delay-500 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg group">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg group cursor-target">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg group">
-                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Watch Demo
-              </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg cursor-target">
                 Our Services
               </Button>
             </div>

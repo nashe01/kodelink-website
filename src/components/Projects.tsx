@@ -83,7 +83,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 group ${
+              className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 group cursor-target ${
                 gridVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
@@ -127,7 +127,7 @@ const Projects = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white"
+                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white cursor-target"
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
@@ -135,7 +135,7 @@ const Projects = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex-1 text-slate-600 border-slate-300 hover:bg-slate-600 hover:text-white"
+                    className="flex-1 text-slate-600 border-slate-300 hover:bg-slate-600 hover:text-white cursor-target"
                   >
                     <Github className="h-4 w-4 mr-2" />
                     Code
@@ -149,7 +149,7 @@ const Projects = () => {
         <div className={`text-center mt-12 transition-all duration-1000 delay-700 ${
           gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 cursor-target">
             View All Projects
           </Button>
         </div>

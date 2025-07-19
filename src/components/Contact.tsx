@@ -35,7 +35,7 @@ const Contact = () => {
           }`}
         >
           <div className="space-y-6 mt-8">
-            <Card className={`border-0 shadow-lg transition-all duration-700 delay-500 ${
+            <Card className={`border-0 shadow-lg transition-all duration-700 delay-500 cursor-target ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <CardHeader className="text-center pb-2">
@@ -47,7 +47,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className={`border-0 shadow-lg transition-all duration-700 delay-700 ${
+            <Card className={`border-0 shadow-lg transition-all duration-700 delay-700 cursor-target ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <CardHeader className="text-center pb-2">
@@ -59,7 +59,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className={`border-0 shadow-lg transition-all duration-700 delay-900 ${
+            <Card className={`border-0 shadow-lg transition-all duration-700 delay-900 cursor-target ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <CardHeader className="text-center pb-2">
@@ -75,7 +75,7 @@ const Contact = () => {
           <div className={`lg:col-span-2 transition-all duration-1000 delay-600 mt-8 ${
             contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
-            <Card className="border-0 shadow-lg">
+            <Card className="border-0 shadow-lg cursor-target">
               <CardHeader>
                 <CardTitle className="text-2xl text-center">Send us a Message</CardTitle>
               </CardHeader>
@@ -101,7 +101,7 @@ const Contact = () => {
                     className="border-slate-300 min-h-20"
                   />
                 </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 group">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 group cursor-target">
                   Send Message
                   <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>

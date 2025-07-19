@@ -30,7 +30,7 @@ const About = () => {
               that help them thrive in our fast-evolving digital world. We believe in clean code, 
               visual excellence, and seamless user experiences.
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 cursor-target">
               Learn More About Us
             </Button>
           </div>

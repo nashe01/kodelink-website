@@ -71,7 +71,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-lg transition-all duration-500 hover:-translate-y-2 border-0 bg-white overflow-hidden ${
+              className={`group hover:shadow-lg transition-all duration-500 hover:-translate-y-2 border-0 bg-white overflow-hidden cursor-target ${
                 gridVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
