@@ -1,10 +1,12 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp } from "lucide-react";
+import { ArrowRight, Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp, Play, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
 
 const Hero = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   return (
     <section 
@@ -42,7 +44,7 @@ const Hero = () => {
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              
+              KodeLink
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-blue-100">
               Bridging Creativity & Innovation
@@ -59,9 +61,33 @@ const Hero = () => {
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg group">
+                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Watch Demo
+              </Button>
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg">
                 Our Services
               </Button>
+            </div>
+
+            {/* Trust indicators */}
+            <div className={`flex flex-wrap justify-center items-center gap-6 mb-8 transition-all duration-1000 delay-600 ${
+              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              <div className="flex items-center gap-2 text-slate-300">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-sm">5.0 Rating</span>
+              </div>
+              <div className="text-slate-300 text-sm">
+                <span className="font-semibold">500+</span> Projects Completed
+              </div>
+              <div className="text-slate-300 text-sm">
+                <span className="font-semibold">50+</span> Happy Clients
+              </div>
             </div>
 
             <div className={`flex justify-center items-center gap-8 opacity-60 transition-all duration-1000 delay-700 ${
