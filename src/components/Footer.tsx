@@ -1,5 +1,6 @@
 
 import { Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp } from "lucide-react";
+import ShinyText from "./ShinyText";
 
 const Footer = () => {
   return (
@@ -7,7 +8,9 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">KodeLink</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              <ShinyText text="KodeLink" className="text-white" speed={5} />
+            </h3>
             <p className="text-slate-300 mb-4">
               Bridging creativity and innovation through smart digital solutions. 
               Connecting people, platforms, and possibilities.

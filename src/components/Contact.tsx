@@ -5,7 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+import ShinyText from "./ShinyText";
+
 import { useState } from "react";
+
 
 const Contact = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -86,7 +90,9 @@ const Contact = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ShinyText text="Get In Touch" className="text-slate-900" speed={4} />
+          </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ready to transform your digital presence? Let's connect and discuss how we can help bring your vision to life.
           </p>
@@ -98,8 +104,8 @@ const Contact = () => {
             contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="space-y-6">
-            <Card className={`border-0 shadow-lg transition-all duration-700 delay-500 ${
+          <div className="space-y-6 mt-8">
+            <Card className={`border-0 shadow-lg transition-all duration-700 delay-500 cursor-target ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <CardHeader className="text-center pb-2">
@@ -111,7 +117,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className={`border-0 shadow-lg transition-all duration-700 delay-700 ${
+            <Card className={`border-0 shadow-lg transition-all duration-700 delay-700 cursor-target ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <CardHeader className="text-center pb-2">
@@ -123,7 +129,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className={`border-0 shadow-lg transition-all duration-700 delay-900 ${
+            <Card className={`border-0 shadow-lg transition-all duration-700 delay-900 cursor-target ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               <CardHeader className="text-center pb-2">
@@ -136,13 +142,41 @@ const Contact = () => {
             </Card>
           </div>
 
-          <div className={`lg:col-span-2 transition-all duration-1000 delay-600 ${
+          <div className={`lg:col-span-2 transition-all duration-1000 delay-600 mt-8 ${
             contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
-            <Card className="border-0 shadow-lg">
+            <Card className="border-0 shadow-lg cursor-target">
               <CardHeader>
                 <CardTitle className="text-2xl text-center">Send us a Message</CardTitle>
               </CardHeader>
+
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                    <Input placeholder="Your name" className="border-slate-300" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                    <Input type="email" placeholder="your@email.com" className="border-slate-300" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Subject</label>
+                  <Input placeholder="Project inquiry" className="border-slate-300" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                  <Textarea 
+                    placeholder="Tell us about your project..." 
+                    className="border-slate-300 min-h-20"
+                  />
+                </div>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 group cursor-target">
+                  Send Message
+                  <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
               <CardContent className="space-y-6">
                 {isSubmitted ? (
                   <div className="text-center py-8">
@@ -238,6 +272,7 @@ const Contact = () => {
                     </Button>
                   </form>
                 )}
+
               </CardContent>
             </Card>
           </div>

@@ -2,6 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ShinyText from "./ShinyText";
 
 const services = [
   {
@@ -55,7 +56,9 @@ const Services = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Our Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ShinyText text="Our Services" className="text-slate-900" speed={4} />
+          </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             We offer comprehensive digital solutions to help your business thrive in the modern digital landscape
           </p>
@@ -68,7 +71,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-lg transition-all duration-500 hover:-translate-y-2 border-0 bg-white overflow-hidden ${
+              className={`group hover:shadow-lg transition-all duration-500 hover:-translate-y-2 border-0 bg-white overflow-hidden cursor-target ${
                 gridVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
@@ -91,7 +94,9 @@ const Services = () => {
                 </div>
               </div>
               <CardHeader className="text-center pb-2">
-                <CardTitle className="text-xl text-slate-900">{service.title}</CardTitle>
+                <CardTitle className="text-xl">
+                  <ShinyText text={service.title} className="text-slate-900" speed={6} />
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-slate-600 text-center leading-relaxed">

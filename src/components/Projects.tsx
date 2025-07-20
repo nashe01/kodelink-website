@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ShinyText from "./ShinyText";
 
 const Projects = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
@@ -67,7 +68,9 @@ const Projects = () => {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Our Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ShinyText text="Our Projects" className="text-slate-900" speed={4} />
+          </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Explore some of our recent work that showcases our expertise in creating innovative digital solutions for businesses across various industries.
           </p>
@@ -80,7 +83,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 group ${
+              className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 group cursor-target ${
                 gridVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
@@ -99,7 +102,9 @@ const Projects = () => {
               </div>
               
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl text-slate-900">{project.title}</CardTitle>
+                <CardTitle className="text-xl">
+                  <ShinyText text={project.title} className="text-slate-900" speed={6} />
+                </CardTitle>
               </CardHeader>
               
               <CardContent className="space-y-4">
@@ -122,7 +127,7 @@ const Projects = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white"
+                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white cursor-target"
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
@@ -130,7 +135,7 @@ const Projects = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex-1 text-slate-600 border-slate-300 hover:bg-slate-600 hover:text-white"
+                    className="flex-1 text-slate-600 border-slate-300 hover:bg-slate-600 hover:text-white cursor-target"
                   >
                     <Github className="h-4 w-4 mr-2" />
                     Code
@@ -144,7 +149,7 @@ const Projects = () => {
         <div className={`text-center mt-12 transition-all duration-1000 delay-700 ${
           gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 cursor-target">
             View All Projects
           </Button>
         </div>
