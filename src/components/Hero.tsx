@@ -2,12 +2,41 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ShinyText from "./ShinyText";
+
+const CIRCLE_RADIUS = 56;
+const CIRCLE_CIRCUM = 2 * Math.PI * CIRCLE_RADIUS;
+const DASHES = [
+  [CIRCLE_CIRCUM * 0.25, CIRCLE_CIRCUM * 0.75], // 90°
+  [CIRCLE_CIRCUM * 0.5, CIRCLE_CIRCUM * 0.5],   // 180°
+  [CIRCLE_CIRCUM * 0.75, CIRCLE_CIRCUM * 0.25], // 270°
+  [CIRCLE_CIRCUM, 0],                          // 360°
+];
 
 const Hero = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isCurtainOpen, setIsCurtainOpen] = useState(false);
+  const [progress, setProgress] = useState(0); // 0 to 1
+
+  useEffect(() => {
+    let start: number | null = null;
+    let req: number;
+    const duration = 2000; // ms
+    function animate(ts: number) {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      const p = Math.min(elapsed / duration, 1);
+      setProgress(p);
+      if (p < 1) {
+        req = requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => setIsCurtainOpen(true), 200);
+      }
+    }
+    req = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(req);
+  }, []);
 
   return (
     <section 
@@ -16,18 +45,45 @@ const Hero = () => {
         heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
+      {/* Curtain overlay with loader */}
+      <div
+        className={`fixed inset-0 z-50 bg-slate-900 transition-transform duration-1000 ease-in-out flex items-center justify-center ${
+          isCurtainOpen ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+        }`}
+        style={{ pointerEvents: isCurtainOpen ? 'none' : 'auto', transitionProperty: 'transform, opacity' }}
+      >
+        <div className="w-full h-full bg-gradient-to-b from-blue-900 via-slate-900 to-slate-800 opacity-90 absolute inset-0"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="relative flex items-center justify-center w-32 h-32">
+            {/* SVG Spinner */}
+            <svg className="absolute w-32 h-32" viewBox="0 0 128 128" style={{ transform: 'rotate(-90deg)' }}>
+              <circle
+                cx="64" cy="64" r="56"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="8"
+                strokeDasharray={`${progress * CIRCLE_CIRCUM} ${CIRCLE_CIRCUM - progress * CIRCLE_CIRCUM}`}
+                strokeLinecap="round"
+                style={{ transition: 'stroke-dasharray 0.1s linear' }}
+              />
+            </svg>
+            {/* KodeLink Logo */}
+            <img
+              src="/lovable-uploads/5edf5fbc-b011-463a-ab65-6cee2d9bc733.png"
+              alt="KodeLink Logo"
+              className="w-24 h-24 object-contain rounded-full bg-white/10 shadow-lg"
+            />
+          </div>
+        </div>
       </div>
-      
-      {/* Background image */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80" 
-          alt="Technology background" 
-          className="w-full h-full object-cover"
+          src="/hero-bg.jpg" 
+          alt="Hero background" 
+          className="w-full h-full object-cover" 
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 opacity-80"></div>
       </div>
       
       <div className="container mx-auto px-6 text-center text-white relative z-10">
@@ -50,7 +106,7 @@ const Hero = () => {
             </h2>
             <p className="text-xl md:text-2xl mb-12 text-slate-300 leading-relaxed">
               Smart digital solutions that connect people, platforms, and possibilities. 
-              From Zimbabwe to the world — we empower your digital transformation.
+              From Zimbabwe to the world, we empower your digital transformation.
             </p>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-16 transition-all duration-1000 delay-500 ${

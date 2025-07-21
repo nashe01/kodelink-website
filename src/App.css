@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.animate-spin-slow {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
