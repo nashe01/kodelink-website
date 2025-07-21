@@ -17,21 +17,25 @@ const DASHES = [
 const Hero = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const [isCurtainOpen, setIsCurtainOpen] = useState(false);
-  const [progressStep, setProgressStep] = useState(0);
+  const [progress, setProgress] = useState(0); // 0 to 1
 
   useEffect(() => {
-    let timeouts: NodeJS.Timeout[] = [];
-    // Animate progress: 0 -> 1 -> 2 -> 3
-    for (let i = 1; i <= 4; i++) {
-      timeouts.push(
-        setTimeout(() => setProgressStep(i), i * 500)
-      );
+    let start: number | null = null;
+    let req: number;
+    const duration = 2000; // ms
+    function animate(ts: number) {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      const p = Math.min(elapsed / duration, 1);
+      setProgress(p);
+      if (p < 1) {
+        req = requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => setIsCurtainOpen(true), 200);
+      }
     }
-    // Open curtain after last step
-    timeouts.push(
-      setTimeout(() => setIsCurtainOpen(true), 4 * 500 + 200)
-    );
-    return () => timeouts.forEach(clearTimeout);
+    req = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(req);
   }, []);
 
   return (
@@ -52,22 +56,22 @@ const Hero = () => {
         <div className="relative z-10 flex flex-col items-center justify-center">
           <div className="relative flex items-center justify-center w-32 h-32">
             {/* SVG Spinner */}
-            <svg className="absolute w-32 h-32" viewBox="0 0 128 128">
+            <svg className="absolute w-32 h-32" viewBox="0 0 128 128" style={{ transform: 'rotate(-90deg)' }}>
               <circle
                 cx="64" cy="64" r="56"
                 fill="none"
                 stroke="#3b82f6"
                 strokeWidth="8"
-                strokeDasharray={`${DASHES[Math.min(progressStep, 3)][0]} ${DASHES[Math.min(progressStep, 3)][1]}`}
+                strokeDasharray={`${progress * CIRCLE_CIRCUM} ${CIRCLE_CIRCUM - progress * CIRCLE_CIRCUM}`}
                 strokeLinecap="round"
-                style={{ transition: 'stroke-dasharray 0.4s cubic-bezier(.4,2,.6,1)' }}
+                style={{ transition: 'stroke-dasharray 0.1s linear' }}
               />
             </svg>
             {/* KodeLink Logo */}
             <img
               src="/lovable-uploads/5edf5fbc-b011-463a-ab65-6cee2d9bc733.png"
               alt="KodeLink Logo"
-              className="w-20 h-20 object-contain rounded-full bg-white/10 shadow-lg"
+              className="w-24 h-24 object-contain rounded-full bg-white/10 shadow-lg"
             />
           </div>
         </div>
