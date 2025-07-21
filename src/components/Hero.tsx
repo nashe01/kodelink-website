@@ -39,7 +39,7 @@ const Hero = () => {
                 fill="none"
                 stroke="#3b82f6"
                 strokeWidth="8"
-                strokeDasharray="60 200"
+                strokeDasharray="352 0"  // 2 * PI * 56 = 351.86 for a full circle
                 strokeLinecap="round"
               />
             </svg>
