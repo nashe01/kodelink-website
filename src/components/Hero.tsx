@@ -16,18 +16,14 @@ const Hero = () => {
         heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="w-full h-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 animate-pulse"></div>
-      </div>
-      
-      {/* Background image */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80" 
-          alt="Technology background" 
-          className="w-full h-full object-cover"
+          src="/hero-bg.jpg" 
+          alt="Hero background" 
+          className="w-full h-full object-cover" 
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 opacity-80"></div>
       </div>
       
       <div className="container mx-auto px-6 text-center text-white relative z-10">
@@ -50,7 +46,7 @@ const Hero = () => {
             </h2>
             <p className="text-xl md:text-2xl mb-12 text-slate-300 leading-relaxed">
               Smart digital solutions that connect people, platforms, and possibilities. 
-              From Zimbabwe to the world — we empower your digital transformation.
+              From Zimbabwe to the world, we empower your digital transformation.
             </p>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-16 transition-all duration-1000 delay-500 ${
