@@ -5,14 +5,33 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useEffect, useRef, useState } from "react";
 import ShinyText from "./ShinyText";
 
+const CIRCLE_RADIUS = 56;
+const CIRCLE_CIRCUM = 2 * Math.PI * CIRCLE_RADIUS;
+const DASHES = [
+  [CIRCLE_CIRCUM * 0.25, CIRCLE_CIRCUM * 0.75], // 90°
+  [CIRCLE_CIRCUM * 0.5, CIRCLE_CIRCUM * 0.5],   // 180°
+  [CIRCLE_CIRCUM * 0.75, CIRCLE_CIRCUM * 0.25], // 270°
+  [CIRCLE_CIRCUM, 0],                          // 360°
+];
+
 const Hero = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isCurtainOpen, setIsCurtainOpen] = useState(false);
+  const [progressStep, setProgressStep] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsCurtainOpen(true), 2000);
-    return () => clearTimeout(timer);
+    let timeouts: NodeJS.Timeout[] = [];
+    // Animate progress: 0 -> 1 -> 2 -> 3
+    for (let i = 1; i <= 4; i++) {
+      timeouts.push(
+        setTimeout(() => setProgressStep(i), i * 500)
+      );
+    }
+    // Open curtain after last step
+    timeouts.push(
+      setTimeout(() => setIsCurtainOpen(true), 4 * 500 + 200)
+    );
+    return () => timeouts.forEach(clearTimeout);
   }, []);
 
   return (
@@ -33,14 +52,15 @@ const Hero = () => {
         <div className="relative z-10 flex flex-col items-center justify-center">
           <div className="relative flex items-center justify-center w-32 h-32">
             {/* SVG Spinner */}
-            <svg className="absolute w-32 h-32 animate-spin-slow" viewBox="0 0 128 128">
+            <svg className="absolute w-32 h-32" viewBox="0 0 128 128">
               <circle
                 cx="64" cy="64" r="56"
                 fill="none"
                 stroke="#3b82f6"
                 strokeWidth="8"
-                strokeDasharray="352 0"  // 2 * PI * 56 = 351.86 for a full circle
+                strokeDasharray={`${DASHES[Math.min(progressStep, 3)][0]} ${DASHES[Math.min(progressStep, 3)][1]}`}
                 strokeLinecap="round"
+                style={{ transition: 'stroke-dasharray 0.4s cubic-bezier(.4,2,.6,1)' }}
               />
             </svg>
             {/* KodeLink Logo */}
