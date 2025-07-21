@@ -2,12 +2,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Smartphone, Palette, DollarSign, GraduationCap, TrendingUp, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ShinyText from "./ShinyText";
 
 const Hero = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isCurtainOpen, setIsCurtainOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsCurtainOpen(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section 
@@ -16,6 +22,36 @@ const Hero = () => {
         heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
+      {/* Curtain overlay with loader */}
+      <div
+        className={`fixed inset-0 z-50 bg-slate-900 transition-transform duration-1000 ease-in-out flex items-center justify-center ${
+          isCurtainOpen ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+        }`}
+        style={{ pointerEvents: isCurtainOpen ? 'none' : 'auto', transitionProperty: 'transform, opacity' }}
+      >
+        <div className="w-full h-full bg-gradient-to-b from-blue-900 via-slate-900 to-slate-800 opacity-90 absolute inset-0"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="relative flex items-center justify-center w-32 h-32">
+            {/* SVG Spinner */}
+            <svg className="absolute w-32 h-32 animate-spin-slow" viewBox="0 0 128 128">
+              <circle
+                cx="64" cy="64" r="56"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="8"
+                strokeDasharray="60 200"
+                strokeLinecap="round"
+              />
+            </svg>
+            {/* KodeLink Logo */}
+            <img
+              src="/lovable-uploads/5edf5fbc-b011-463a-ab65-6cee2d9bc733.png"
+              alt="KodeLink Logo"
+              className="w-20 h-20 object-contain rounded-full bg-white/10 shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
       {/* Gradient overlay */}
       <div className="absolute inset-0 z-0">
         <img 
