@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ShinyText from "./ShinyText";
 
@@ -123,22 +123,14 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                <div className="flex gap-3 pt-2">
+                <div className="pt-2">
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="flex-1 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white cursor-target"
+                    className="w-full text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white cursor-target"
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="flex-1 text-slate-600 border-slate-300 hover:bg-slate-600 hover:text-white cursor-target"
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
                   </Button>
                 </div>
               </CardContent>
