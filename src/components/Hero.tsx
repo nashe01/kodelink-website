@@ -116,9 +116,7 @@ const Hero = () => {
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg cursor-target">
-                Our Services
-              </Button>
+              
             </div>
 
             {/* Trust indicators */}
