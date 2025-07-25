@@ -112,11 +112,6 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-16 transition-all duration-1000 delay-500 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg group cursor-target">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
             </div>
 
             {/* Trust indicators */}
