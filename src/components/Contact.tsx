@@ -55,7 +55,7 @@ const Contact = () => {
                 <CardTitle className="text-sm">Call Us</CardTitle>
               </CardHeader>
               <CardContent className="text-center py-2">
-                <p className="text-slate-600 text-sm">+263 123 456 789</p>
+                <p className="text-slate-600 text-sm">+263 785474199</p>
               </CardContent>
             </Card>
 
